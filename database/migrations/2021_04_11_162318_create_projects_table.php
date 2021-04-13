@@ -18,14 +18,16 @@ class CreateProjectsTable extends Migration
 
 
             $table->id();
-            $table->int('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->text('small_description');
             $table->text('long_description');
             $table->string('github_link')->Nullable();;
-            $table->stringValue('page_link')-> Nullable();
-            $table->image_url('projec_image');
-            $table->string('type');
+            $table->string('page_link')-> Nullable();
+            $table->string('project_image_url');
+            $table->enum('type',['Mobile app','Web app','Personal Designs']);
+            $table->enum('contribution', ['created', 'participated']);
+
 
             $table->timestamps();
         });

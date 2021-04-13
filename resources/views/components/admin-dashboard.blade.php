@@ -19,12 +19,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css')}}" rel="stylesheet ">
+    @section('styles')
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <div class="row">
-                    <a class="navbar-brand" href="#">Hello <span><b>{{Auth::user()->email}}</b><span></a>
+                    <a class="navbar-brand" href="#">Hello <span><b>{{Auth::user()->email}}</b><span> you have a role of <span><b></b><span>  </a>
             </div>
 
         </div>
@@ -51,5 +52,6 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" ></script>
         <script src="{{ asset('js/dashboard.js') }}" ></script>
+        @yield('scripts')
 </body>
 </html>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminsCntroller;
 use App\Http\Controllers\HomePageSettings;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Config;
 
 /*
@@ -28,9 +30,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminsCntroller::class, 'index'])->name('dashboard.index');;
 
 
-
+    //Home PAGE SETTINGS
     Route::get('/home-page-settings', [HomePageSettings::class, 'index'])->name('dashboard.home_page_settings');
     Route::post('/home-page-settings', [HomePageSettings::class, 'changeSetting'])->name('dashboard.home_page_settings_change');
+
+
+    //User Management index
+    Route::get('/admin/users',[UserController::class, 'index'])->name('user_managment.index');
+
+
+    //Projects Managements
+
+    Route::get('/admin/projects',[ProjectController::class, 'index'])->name('projects.index');
+
+
 
 
 
