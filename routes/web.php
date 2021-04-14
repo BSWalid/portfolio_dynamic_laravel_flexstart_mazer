@@ -42,6 +42,14 @@ Route::middleware(['auth'])->group(function () {
     //Projects Managements
 
     Route::get('/admin/projects',[ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/admin/projects/create',[ProjectController::class, 'create'])->name('projects.create');
+    Route::post('/admin/projects/create',[ProjectController::class, 'store'])->name('projects.store');
+
+    Route::get('/admin/projects/{project}/edit',[ProjectController::class, 'edit'])->name('projects.edit');
+    Route::patch('/admin/projects/{project}/edit',[ProjectController::class, 'update'])->name('projects.update');
+    Route::delete('/admin/projects/{project}/delete',[ProjectController::class, 'destroy'])->name('projects.delete');
+
+
 
 
 

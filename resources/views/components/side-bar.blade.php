@@ -34,10 +34,10 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="{{route('projects.index')}}">All Projects</a>
+                            <a href="{{route('projects.index')}}"> All Projects</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Create Project</a>
+                            <a href="{{route('projects.create')}}"> Create Project </a>
                         </li>
 
                     </ul>

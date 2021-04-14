@@ -22,7 +22,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->text('small_description');
             $table->text('long_description');
-            $table->string('github_link')->Nullable();;
+            $table->string('github_link')->Nullable();
             $table->string('page_link')-> Nullable();
             $table->string('project_image_url');
             $table->enum('type',['Mobile app','Web app','Personal Designs']);

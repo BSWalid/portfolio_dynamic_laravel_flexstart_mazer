@@ -31,35 +31,42 @@
 
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" method="POST" action="{{route('projects.store')}}" enctype="multipart/form-data">
+                                <form class="form" method="POST" action="{{route('projects.update',$project->id)}}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PATCH')
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="project title">Project Title</label>
-                                                <input type="text" id="title" class="form-control" placeholder="Project Title" name="title">
+                                                <input type="text" id="title" class="form-control" value="{{$project->title}}" name="title">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="github link">Github Link</label>
-                                                <input type="text" name="github_link" id="github_link" class="form-control" placeholder="link to the project github link (optional)" >
+                                                <input type="text" name="github_link" id="github_link" value="{{$project->github_link}}" class="form-control" placeholder="link to the project github link (optional)" >
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="page_link">Page Link</label>
-                                                <input type="text" id="page_link" class="form-control" placeholder="Page link of the project" name="page_link">
+                                                <input type="text" id="page_link" class="form-control"value="{{$project->page_link}}" placeholder="Page link of the project" name="page_link">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="type">Type of project</label>
-                                                <select class="form-control" id="type" name="type">
+                                                <select class="form-control" id="type" name="type"  >
 
-                                                  <option>Mobile app</option>
-                                                  <option>Web app</option>
-                                                  <option>Personal Designs</option>
+                                                    @foreach (['Mobile app','Web app','Personal Designs'] as $type )
+                                                            @if ($project->type == $type)
+                                                            <option selected="selected">{{$type}}</option>
+                                                            @else
+                                                            <option>{{$type}}</option>
+                                                            @endif
+
+                                                    @endforeach
+
 
                                                 </select>
                                               </div>
@@ -68,8 +75,15 @@
                                             <div class="form-group">
                                                 <label for="contribution">Contribution of project</label>
                                                 <select class="form-control" id="exampleFormControlSelect1" name="contribution">
-                                                  <option>Created</option>
-                                                  <option>Participated</option>
+
+                                                  @foreach (['created','participated'] as $contribution )
+                                                  @if ($project->contribution == $contribution)
+                                                  <option selected="selected">{{$contribution}}</option>
+                                                  @else
+                                                  <option>{{$contribution}}</option>
+                                                  @endif
+
+                                          @endforeach
 
 
                                                 </select>
@@ -78,8 +92,8 @@
                                         <div class="col-md-12 col-12">
 
                                              <div class="form-group">
-                                                <label for="small_description" class="col-12 col-form-label">Small Description</label>
-                                                <textarea id="small_description" name="small_description" cols="40" rows="5" class="form-control"></textarea>
+                                                <label for="small_description" class=" col-form-label">Small Description</label>
+                                                <textarea id="small_description"  name="small_description" cols="40" rows="5" class="form-control">{{$project->small_description}}</textarea>
 
                                             </div>
                                         </div>
@@ -88,8 +102,8 @@
                                         <div class="col-md-12 col-12">
 
                                             <div class="form-group">
-                                               <label for="long_description" class="col-12 col-form-label">Long Description</label>
-                                               <textarea id="long_description" name="long_description" cols="40" rows="5" class="form-control"></textarea>
+                                               <label for="long_description" class=" col-form-label">Long Description</label>
+                                               <textarea id="long_description" name="long_description" cols="40" rows="5" class="form-control">{{$project->long_description}}</textarea>
 
                                            </div>
                                        </div>
@@ -103,13 +117,14 @@
 
 
                                        </div>
+                                       <img src="{{$project->project_image_url}}" alt="iameg" width="50px" height="50px">
                                     </div>
 
 
 
 
                                         <div class="col-12 d-flex justify-content-start">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Create</button>
+                                            <button type="submit" class="btn btn-primary me-1 mb-1">Edit</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                         </div>
                                     </div>

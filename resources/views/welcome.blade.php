@@ -38,7 +38,7 @@
 
       <a href="{{route('homepage')}}" class="logo d-flex align-items-center">
         <img src="{{ asset('images/logo.png') }}" alt="">
-        <span>Something</span>
+        <span>Walid</span><span> Bensidiassa</span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -86,26 +86,37 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-              <h1 data-aos="fade-up">{{Config::get('constants.home.Hero_section_title')}}</h1>
-              <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
-              <div data-aos="fade-up" data-aos-delay="600">
-                <div class="text-center text-lg-start">
-                  <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                    <span>Get Started</span>
+              <h1 data-aos="fade-up">Bensidiaissa Walid</h1>
+              <h2 data-aos="fade-up" data-aos-delay="400">Mobile Native & Web Developer - Freelancer</h2>
+              </br>
+              <h4 data-aos="fade-up" data-aos-delay="600">Native Android Java apps &amp;
+                   beautiful websites made with laravel and more </h4>
+
+              <div data-aos="fade-up" data-aos-delay="700">
+                <div class="text-start text-lg-start">
+                  <a href="#projects" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-start align-self-center">
+                    <span>Browse My project</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-              <img src="{{asset('images/hero-img.png')}}" class="img-fluid" alt="">
+            <div class="col-lg-6 hero-img " data-aos="zoom-out" data-aos-delay="200">
+              <img src="{{asset('images/hero-img.png')}}" class="img-fluid rounded" alt="" width="450px" height="450px">
             </div>
           </div>
         </div>
 
       </section><!-- End Hero -->
 
-  <!-- Vendor JS Files -->
+    <!-- Vendor JS Files -->
+
+       <!-- ======= Portfolio item Section ======= -->
+
+       <x-portfolio >
+
+
+       </x-portfolio>
 
 
   <!-- Template Main JS File -->
